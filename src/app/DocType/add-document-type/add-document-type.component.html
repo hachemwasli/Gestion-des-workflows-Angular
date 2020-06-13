@@ -1,0 +1,30 @@
+<div class="col-md-6" style="float:none;margin:auto;">
+  <h2 class="text-center">Ajouter Type Document</h2>
+  <form name="form" (ngSubmit)="f.form.valid && createDocumentType()" #f="ngForm">
+    <div class="form-group">
+      <label for="code_type">Code type Document:</label>
+      <input type="text" [(ngModel)]="document_type.code_type" name="code_type" class="form-control" id="code_type"
+        #code_type="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && code_type.invalid }" required>
+
+      <div *ngIf="f.submitted && code_type.invalid" class="invalid-feedback">
+        <div *ngIf="code_type.errors.required">Code type is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type_doc">Type Document:</label>
+      <input type="text" [(ngModel)]="document_type.type_doc" name="type_doc" class="form-control"
+        id="type_doc" #type_doc="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && type_doc.invalid }"
+        required>
+
+      <div *ngIf="f.submitted && type_doc.invalid" class="invalid-feedback">
+        <div *ngIf="type_doc.errors.required">Type doc is required</div>
+      </div>
+    </div>
+    
+    <button class="btn"><i class="fas fa-check-square"></i> </button>
+    <a routerLink="/document-type" class="btn"><i class="fas fa-home" style="color:white"></i> </a>
+  </form>
+</div>

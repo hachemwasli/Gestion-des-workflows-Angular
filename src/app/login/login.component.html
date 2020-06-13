@@ -1,0 +1,25 @@
+<!-- <div class="container" style="text-align:center"  >
+  
+  <div style="text-align:center">User Name : </div> 
+  <div style="text-align:center">
+    <input type="text" name="username" [(ngModel)]="username">
+  </div> 
+  <div style="text-align:center">Password : </div> 
+  <div tyle="text-align:center">
+  <input type="password" name="password" [(ngModel)]="password">
+  </div>
+  <button (click)=checkLogin() class="btn ">
+    Login
+  </button>
+</div> -->
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">Log in</h2>
+
+  <form class="login-container">
+    <p><input type="Username" placeholder="Username" [(ngModel)]="username"></p>
+    <p><input type="password" placeholder="Password" [(ngModel)]="password"></p>
+    <p><input type="submit" value="Log in" (click)=checkLogin()  ></p>
+  </form>
+</div>

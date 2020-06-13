@@ -1,0 +1,33 @@
+<div class="col-md-6" style="float:none;margin:auto;">
+  <h2 class="text-center">Detail Document: {{document.nom_doc}}</h2>
+  <form>
+    <div class="form-group">
+      <label for="code_doc">Code Document:</label>
+      <input type="code_doc" [(ngModel)]="document.code_doc" name="code_doc" class="form-control" id="code_doc"
+        disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="nom_doc">Nom Document:</label>
+      <input type="nom_doc" [(ngModel)]="document.nom_doc" name="nom_doc" class="form-control" id="nom_doc" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="description_doc">Description Document:</label>
+      <input type="description_doc" [(ngModel)]="document.description_doc" name="description_doc" class="form-control"
+        id="description_doc" disabled>
+    </div>
+
+    <div class="form-group">
+      <label for="doctypeId" >Type Document:</label>
+      <select [(ngModel)]="document.doctypeId"class="form-control"
+          ng-required="true" id="doctypeId" name="doctypeId" disabled>
+          <option value="">-- Choisir Type --</option>
+          <option *ngFor="let doc_type of doc_types" [value]="doc_type.id_typedoc">{{doc_type.type_doc}}</option>
+        </select>
+    </div>
+    <a [routerLink]="['/etudiant', id_et,'document','edit-document', document.id_doc]" class="btn"><i class="fas fa-pencil-alt"
+        style="color:white"></i> </a>
+    <a [routerLink]="['/etudiant', id_et,'document']" class="btn"><i class="fas fa-home" style="color:white"></i> </a>
+  </form>
+</div>

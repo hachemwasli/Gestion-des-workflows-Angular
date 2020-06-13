@@ -1,0 +1,16 @@
+<div class="col-md-6" style="float:none;margin:auto;">
+  <h2 class="text-center">Detail type Document: {{document_type.type_doc}}</h2>
+  <form>
+    <div class="form-group">
+      <label for="code_type">Code Type Document:</label>
+      <input type="code_type" [(ngModel)]="document_type.code_type" name="code_type" class="form-control" id="code_type" disabled>
+    </div>
+  
+    <div class="form-group">
+      <label for="type_doc">Type Document:</label>
+      <input type="type_doc" [(ngModel)]="document_type.type_doc" name="type_doc" class="form-control" id="type_doc" disabled>
+    </div>
+    <a  [routerLink]="['/edit-document-type', document_type.id_typedoc]" class="btn"><i class="fas fa-pencil-alt" style="color:white"></i> </a>
+    <a  routerLink="/document-type" class="btn"><i class="fas fa-home" style="color:white"></i> </a>
+  </form>
+  </div>

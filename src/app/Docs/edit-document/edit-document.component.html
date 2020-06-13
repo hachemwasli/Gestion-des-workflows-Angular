@@ -1,0 +1,44 @@
+<div class="col-md-6" style="float:none;margin:auto;">
+  <h2 class="text-center">Modifier Document: {{document.nom_doc}}</h2>
+  <form name="form" (ngSubmit)="f.form.valid && editDocument()" #f="ngForm">
+    <div class="form-group">
+      <label for="code_doc">Code Document:</label>
+      <input type="text" [(ngModel)]="document.code_doc" name="code_doc" class="form-control" id="code_doc"
+        #code_doc="ngModel" [ngClass]="{ 'is-invalid': f.submitted && code_doc.invalid }" required>
+      <div *ngIf="f.submitted && code_doc.invalid" class="invalid-feedback">
+        <div *ngIf="code_doc.errors.required">Code doc is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nom_doc">Nom Document:</label>
+      <input type="text" [(ngModel)]="document.nom_doc" name="nom_doc" class="form-control" id="nom_doc"
+        #nom_doc="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nom_doc.invalid }" required>
+      <div *ngIf="f.submitted && nom_doc.invalid" class="invalid-feedback">
+        <div *ngIf="nom_doc.errors.required">Name doc is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description_doc">Description Document:</label>
+      <input type="text" [(ngModel)]="document.description_doc" name="description_doc" class="form-control"
+        id="description_doc" #description_doc="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && description_doc.invalid }" required>
+      <div *ngIf="f.submitted && description_doc.invalid" class="invalid-feedback">
+        <div *ngIf="description_doc.errors.required">Doc Description is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="doctypeId">Type Document:</label>
+      <select [(ngModel)]="document.doctypeId" class="form-control" ng-required="true" id="doctypeId" name="doctypeId">
+        <option value="">-- Choisir Type --</option>
+        <option *ngFor="let doc_type of doc_types" [value]="doc_type.id_typedoc">{{doc_type.type_doc}}</option>
+      </select>
+    </div>
+
+
+    <button class="btn"><i class="fas fa-check-square"></i></button>
+    <a [routerLink]="['/etudiant', id_et,'document']" class="btn"><i class="fas fa-home" style="color:white"></i> </a>
+  </form>
+</div>
